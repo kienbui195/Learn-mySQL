@@ -15,10 +15,12 @@ create table orders (
     foreign key (cid) references customer(cid)
 );
 
+drop table ordersdetail;
 create table ordersdetail (
 	oid int(3),
     pid int(3),
     qty int(10),
+    primary key (oid, pid),
     foreign key (oid) references orders(oid),
     foreign key (pid) references product(pid)
 );
